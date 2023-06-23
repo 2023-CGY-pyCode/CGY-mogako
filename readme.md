@@ -39,7 +39,7 @@
     - 각 구성원이 문제 해결 방법 설명 (20m * members)
     - 나머지 시간은 각자 발표자가 준비한 문제 풀기 문제당 20~30분 (~80m)
     - 발표자는 미리 정해진 문제를 숙제로 내야 합니다. (최소 2문제)
-- `학습 과정 3` ( 자유 )
+- `학습 과정 3` **( 자유 )**
     - 전체 시간 동안 각 멤버는 3개의 문제를 풉니다( 30m * 3개당).
     - 문제를 푼 사람이 있다면 그 문제를 설명해 주세요. 꼭 발표자일 필요는 없습니다. ( 20m당 x 3 )
     - 발표자는 미리 정해진 문제를 숙제로 내야 합니다. (최소 3문제)
@@ -55,10 +55,11 @@
     - 추후에 상세한 포인트의 가감은 구성원들과의 토의를 통해 거칠 예정입니다.
 - 선택한 문제 세트는 백준과 같은 ps 사이트일 수 있습니다.
 - 그룹 github 운영 예정
-    - Repo는 이 형식이어야 합니다.
+    - Repo는 이 형식입니다. 파일 저장 규칙은 크게 제한을 두지 않습니다.
     - <Team_NAME_PS>/<YOUR_NAME>/problem_set.py
     - Commit은 이 형식이어야 합니다.
-    - Commit Message : "Add <GITHUB_ID> <PROBLEM_NUMBER>.py"
+    - Commit Message : "Add <GITHUB_ID> <boj_0001>.py" or
+    - Commit Message : "Add <GITHUB_ID> <YOUR_CONVENTION>.py"
 
 ### 🔑 Study Rules ( English )
 
