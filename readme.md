@@ -10,6 +10,9 @@
 ### 🫲 **How to meet?**
 - Offline & Online 
 
+### ✨ Github & Blog 
+- [Team github repository](https://github.com/2023-CGY-pyCode/CGY-mogako)
+- [Team blog](https://serotina.vercel.app/2023-summer-mokoko)
 
 ### 📖 Reference
 - [[Algorithm] 강좌/실전](https://blog.encrypted.gg/category/강좌/실전)
@@ -54,6 +57,8 @@
 - 그룹 github 운영 예정
     - Repo는 이 형식이어야 합니다.
     - <Team_NAME_PS>/<YOUR_NAME>/problem_set.py
+    - Commit은 이 형식이어야 합니다.
+    - Commit Message : "Add <GITHUB_ID> <PROBLEM_NUMBER>.py"
 
 ### 🔑 Study Rules ( English )
 
