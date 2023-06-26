@@ -15,7 +15,7 @@
 - [Team blog](https://serotina.vercel.app/2023-summer-mokoko)
 
 ### 📖 Reference
-- [[Algorithm] 강좌/실전](https://blog.encrypted.gg/category/강좌/실전)
+- [[Algorithm] 강좌/실전](https://blog.encrypted.gg/category/%EA%B0%95%EC%A2%8C/%EC%8B%A4%EC%A0%84%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 - [[Algorithm] 백준 문제 추천](https://devjeong.com/algorithm/algorithm-1/#투-포인터)
 - [신입 IT 개발자 코딩 테스트 후기 - 언어, 공부 방법, 난이도 등](https://corin-e.tistory.com/entry/신입-IT-개발자-코딩테스트-후기-언어-공부-방법-난이도-등)
 
