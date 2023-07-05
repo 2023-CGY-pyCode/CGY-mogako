@@ -1,9 +1,4 @@
 N = input()
-
-##print(N[:10])
-##N = N[10:]
-##print(N[:10])
-
       
 while N: #N이 사라질 때 까지
     if len(N) > 10: #N의 길이 10보다 큰경우
@@ -12,9 +7,3 @@ while N: #N이 사라질 때 까지
     else:
         print(N) #10보다 작은 경우 N을 출력하고 WHILE문 탈출
         N = False
-          
-        
-
-
-        
-    
