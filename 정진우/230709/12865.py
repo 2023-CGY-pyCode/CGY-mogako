@@ -24,11 +24,5 @@ for _ in range(N):
     values.append(item[1])
     
 print(knapsack(K, weights, values, N))
-    
-
-
-
-
-            
             
             
