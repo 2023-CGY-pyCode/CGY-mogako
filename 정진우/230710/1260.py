@@ -2,36 +2,48 @@ import sys
 from collections import deque
 N, M, V = tuple(map(int, input().split()))
 
-arr = [[0] * (N+1) for _ in range(N+1)]
+arr = [[] * (N+1) for _ in range(N+1)]
+visited = [0] * (N+1)
 for _ in range(M):
-    v, e = tuple(map(int, sys.stdin.readline().split()))
-    arr[v][e] = 1
+    v, e = tuple(map(int, input().split()))
+    arr[v].append(e)
+    arr[e].append(v)
     
-# print(arr)
-def DFS(V):
-    for j in range(len(arr[V])):
-        if arr[V][j] == 1:
-            print(V, end=" ")
-            DFS(j)
+for i in range(N+1):
+    arr[i].sort()
 
-def BFS(V):
-    d = deque()
-    d.append(V)
-    visited = [False] * (N+1)
-    for i in range(N):
-        while(d):
-            vertex = d.popleft()
-            if visited[vertex] == False:
-                visited[vertex] = True
-            elif visited[vertex] == True:
+def DFS(e):
+    if visited[e]:
+        return
+    else:
+        visited[e] = 1
+        print(e, end=" ")
+        for i in arr[e]:
+            DFS(i)
+            
+        
+    
+def BFS(e):
+    dq = deque()
+    if not visited[e]:
+        dq.append(e)
+        visited[e] = 1
+    while(dq):
+        edge = dq.popleft()
+        print(edge, end=' ')
+        for i in arr[edge]:
+            if visited[i]:
                 continue
-            print(vertex, end=" ")
-            for i in range(len(arr[vertex])):
-                if not visited[i] and arr[vertex][i]:
-                    d.append(i)
-        if not visited[i]:
-            d.append(i)
-                    
-# DFS(V)
-# print()
+            dq.append(i)
+            visited[i] = 1
+
+
+DFS(V)
+# for i in range(1, len(arr)):
+#     DFS(i)
+print()
+visited = [0] * (N+1)
 BFS(V)
+# for i in range(1, len(arr)):
+#     BFS(i)
+    
