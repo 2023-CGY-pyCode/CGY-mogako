@@ -44,7 +44,7 @@ while True:
             li.append(node)
     except:
         root = tree.root    
-        for i in range(li):
+        for i in li:
             bst(i, root)
         post_order(root)
         break

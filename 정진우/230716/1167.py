@@ -15,7 +15,7 @@ for _ in range(n):
         v, c = li[i], li[i+1]
         tree[e].append((v,c))
     
-print(tree)
+# print(tree)
 dfs_list = []
 def dfs(s, e, result):
     for u, v in tree[s]:
