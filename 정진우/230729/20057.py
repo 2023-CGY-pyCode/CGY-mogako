@@ -54,7 +54,6 @@ def tornado_process(y, x, value, d):
     global out 
     left = d-1 if d-1 >= 0 else 3
     right = d+1 if d+1 <= 3 else 0
-    # print(y,x,value)
     dd_list = get_dd(left, right, d)
     result = 0
     for ddy, ddx, p in dd_list:
@@ -62,19 +61,13 @@ def tornado_process(y, x, value, d):
         
         if y+ddy >= 0 and y+ddy < N and x+ddx >= 0 and x+ddx < N:
             arr[y+ddy][x+ddx] += r
-            # print("r->",r)
         else:
             out += r
-            # if r != 0:
-            #     print("out r is :", r)
         result += r
-        # print(y+ddy, x+ddx, arr[ddy][ddx])
     
     if y+dy[d] >= 0 and y+dy[d] < N and x+dx[d] >= 0 and x+dx[d] < N:
         arr[y+dy[d]][x+dx[d]] += value-result # 남은거 저장
     else:
-        # if value-result != 0:
-        #     print("out r is :", value-result)
         out += value-result
         
     arr[y][x] = 0
@@ -82,23 +75,16 @@ def tornado_process(y, x, value, d):
     
 def tornado(y, x, d):
     next_y, next_x = y+dy[d], x+dx[d]
-    # print(next_y, next_x)
     value = arr[next_y][next_x]
     tornado_process(next_y, next_x, value, d)
     return next_y, next_x
-    
-    
-    
     
 # 시작 회오리는 정가운데 N은 홀수. 
 target_directions = get_tornado_directions()
 target_y, target_x = N//2, N//2
 
 for direction in target_directions:
-    # print(direction)
     target_y, target_x = tornado(target_y, target_x, direction)
-    #print(arr)
-    
 
 print(out)
 
