@@ -1,11 +1,10 @@
 import sys
 from collections import deque
-from enum import Enum
 input = sys.stdin.readline
 N = int(input())
 
-print(int(False))
 dq =deque()
+
 for _ in range(N):
     s = str(input()).strip()
     

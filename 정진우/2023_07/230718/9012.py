@@ -9,7 +9,6 @@ def check(string, st):
             else:
                 if st[-1] == "(":
                     st.pop()
-                    continue
         else:
             st.append(i)  
             

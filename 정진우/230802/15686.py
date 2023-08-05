@@ -26,9 +26,7 @@ def bfs(y, x, c):
         target_y, target_x = p
         min_value = min((abs(target_y-y) + abs(target_x-x)), min_value)
     return min_value
-                    
-                        
-                
+                              
 # print(c_list)
 
 min_result = 100000

@@ -8,7 +8,7 @@ visited = [0] * (N+1)
 ancestor = [0] * (N+1)
 
 arr = [[] for i in range(N+1)] 
-print(arr)
+# print(arr)
 for _ in range(N-1):
     e, v = tuple(map(int, input().split()))
     arr[e].append(v)
