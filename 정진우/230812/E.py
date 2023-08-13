@@ -61,7 +61,7 @@ class Game():
             self.player_state += value
             self.after_action()
         
-    def after_action(self):  # 액션을 한 후에
+    def after_action(self, style=None):  # 액션을 한 후에
         # 보드는 정확히 4n-4이기 때문에 이를 넘을 수 없음 0부터 시작
         # 만약 19에서 1을 굴려서 20이 됬으면 4*self.n -4 = 20보다는 크거나 같음 즉 0으로 바꿔줘야함 
         # 0번째가 스타트 
@@ -69,7 +69,7 @@ class Game():
             self.player_state = self.player_state % (4*self.n - 4)
             self.player_money += self.W # 월급 추가
             
-        elif self.player_state == 0: 
+        elif self.player_state == 0:  # 시작칸
             self.player_money += self.W
         
         if self.player_state == self.n-1: # 무인도
@@ -97,7 +97,7 @@ class Game():
                     # print(self.player_state, "구매")
             except: # 특별 칸이라면
                 style = self.board[self.player_state]
-                if style == 'G':
+                if style == 'G': # 특별칸의 황금카드라면
                     self.golden_card_action()
             
     
@@ -112,7 +112,9 @@ class Game():
     def action(self):        
         if self.space_trip == True:
             self.player_state = 0 # 시작칸으로 이동
+            self.space_trip = False
             self.after_action() # 월급 받아야함
+            
         if self.dice_rolls:
             dice_1, dice_2 = self.dice_rolls.pop(-1) # 주사위 roll
         else:
