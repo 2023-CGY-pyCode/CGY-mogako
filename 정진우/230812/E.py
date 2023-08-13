@@ -66,8 +66,9 @@ class Game():
         # 만약 19에서 1을 굴려서 20이 됬으면 4*self.n -4 = 20보다는 크거나 같음 즉 0으로 바꿔줘야함 
         # 0번째가 스타트 
         if self.player_state >= 4*self.n - 4:  # 독립적 # 액션을 한 후에 도착 or 지나갔다면  시작 칸 : 이 칸에 정확히 멈추거나 지나가게 되면, 월급을 받게 된다.
-            self.player_state = self.player_state % (4*self.n - 4)
             self.player_money += self.W * (self.player_state // (4 * self.n - 4))
+            self.player_state = self.player_state % (4*self.n - 4)
+            # self.player_money += self.W * (self.player_state // (4 * self.n - 4))
             # 월급 추가 2번 지날수도있음;;
             
         elif self.player_state == 0:  # 시작칸
