@@ -41,7 +41,6 @@ class Game():
         self.golden_card_list = golden_card_list[::-1] # tuple 역순으로 넣음 먼저 입력된게 먼저 뽑혀야함 queue
     
     def golden_card_action(self): # action can be 1~4, value ~ x or y
-                
         action, value = self.golden_card_list.pop(-1)
         self.golden_card_list.insert(0, (action, value))
         
@@ -57,6 +56,7 @@ class Game():
                 self.game_end('LOSE')
             else:
                 self.walfare += value
+                self.player_money -= value
         if action == 4: # 앞으로 이동
             self.player_state += value
             self.after_action()
@@ -66,10 +66,12 @@ class Game():
         # 만약 19에서 1을 굴려서 20이 됬으면 4*self.n -4 = 20보다는 크거나 같음 즉 0으로 바꿔줘야함 
         # 0번째가 스타트 
         if self.player_state >= 4*self.n - 4:  # 독립적 # 액션을 한 후에 도착 or 지나갔다면  시작 칸 : 이 칸에 정확히 멈추거나 지나가게 되면, 월급을 받게 된다.
+            self.player_money += self.W * (self.player_state // (4 * self.n - 4))
             self.player_state = self.player_state % (4*self.n - 4)
-            self.player_money += self.W # 월급 추가
+            # self.player_money += self.W * (self.player_state // (4 * self.n - 4))
+            # 월급 추가 2번 지날수도있음;;
             
-        elif self.player_state == 0: 
+        elif self.player_state == 0:  # 시작칸
             self.player_money += self.W
         
         if self.player_state == self.n-1: # 무인도
@@ -82,7 +84,6 @@ class Game():
             
         elif self.player_state == 3 * (self.n-1): # 우주여행
             self.space_trip = True
-            self.turn_count = 0
             
         else: # 일반칸
             try: # 이게 도시칸인가?
@@ -97,7 +98,7 @@ class Game():
                     # print(self.player_state, "구매")
             except: # 특별 칸이라면
                 style = self.board[self.player_state]
-                if style == 'G':
+                if style == 'G': # 특별칸의 황금카드라면
                     self.golden_card_action()
             
     
@@ -110,13 +111,20 @@ class Game():
         
         
     def action(self):        
-        if self.space_trip == True:
-            self.player_state = 0 # 시작칸으로 이동
-            self.after_action() # 월급 받아야함
         if self.dice_rolls:
             dice_1, dice_2 = self.dice_rolls.pop(-1) # 주사위 roll
         else:
             self.game_end('WIN')
+            
+        if self.space_trip == True:
+            self.player_state = 0 # 시작칸으로 이동
+            self.space_trip = False
+            self.after_action() # 월급 받아야함
+            
+        # if self.dice_rolls:
+        #     dice_1, dice_2 = self.dice_rolls.pop(-1) # 주사위 roll
+        # else:
+        #     self.game_end('WIN')
         
         if self.jail == True and self.turn_count >= 1 and self.game == True: # 감옥이고 갇혀있는 턴이 남아있다면
             if dice_1 == dice_2: # 탈출
@@ -126,17 +134,19 @@ class Game():
                     dice_1, dice_2 = self.dice_rolls.pop(-1) # 한번더 주사위 roll (이전 주사위 못씀)
                 else:
                     self.game_end('WIN')
+                    
             else:
                 self.turn_count -= 1
-                if self.turn_count == 0: # 횟수 차감했는데 탈출 가능하다면
+                if self.turn_count <= 0: # 횟수 차감했는데 탈출 가능하다면
                     self.jail = False # 이제 감옥 탈출
+                    self.turn_count = 0
                     
                 return
         
         if self.game == True:
             self.player_state += dice_1 + dice_2 # 두 주사위의 눈만큼 이동
             self.after_action() # 이동한후 액션
-      
+            
 # init
 n, S, W, G = map(int, input().split())
 game = Game(n, S, W, G)
@@ -172,7 +182,7 @@ game.get_board_state(board_list)
 game.get_dice_rolls(dice_rolls)
 
 # for board in game.board:
-    # print(board)
+#     print(board)
     
 while game.game == True:
     game.action()
