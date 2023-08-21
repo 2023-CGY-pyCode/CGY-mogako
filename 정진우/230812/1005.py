@@ -14,7 +14,7 @@ def dfs_sort(graphs, curr, W):
     for node in graphs[curr]:
         if visited[node] == 0:
             visited[node] = 1
-            print(node)
+            # print(node)
             dfs_sort(graphs, node, W)
             
     stack.append(curr)
@@ -27,12 +27,13 @@ for _ in range(T):
     dp = [0] * (N+1)
     
     graphs = [[] * (N+1) for _ in range(N+1)]
-    ans = [0] * (N+1)
     roles = [0] * (N+1)
     li = list(map(int, input().split()))
     # rules input
     for i in range(1, N+1): 
         roles[i] = li[i-1]
+        
+    dp = roles[:]
         
 
     for i in range(K):
@@ -62,7 +63,9 @@ for _ in range(T):
         
     
     print(dp)
+    print(graphs)
     print("출력은:", dp[W]) # target DP
+    print(dp[W])
 
     
         
