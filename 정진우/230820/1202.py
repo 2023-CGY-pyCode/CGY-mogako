@@ -27,7 +27,6 @@ for bag in bags:
         heapq.heappush(tmp, -jewelies[0][1]) # 값 넣음 
         heapq.heappop(jewelies) # 값 제거
     if tmp:
-        print(jewelies)
         result -= heapq.heappop(tmp) # 가방에 들어갈 수 있는 가장 큰 값 제거
         
 print(result)

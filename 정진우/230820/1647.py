@@ -33,7 +33,7 @@ weighted = []
 for item in graph: #mst 생성과정
     if count == len(ancestor)-1: # mst 완성
         break
-    A, B, C = item
+    A, B, C = item  
     
     if A > B: # 작은 정점이 앞으로
         A, B = B, A
