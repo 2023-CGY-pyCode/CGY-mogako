@@ -28,5 +28,4 @@ def solve(n, l, r):
 arr = list(map(int, sys.stdin.readline().split()))
 dp = [[[-1] * 5 for _ in range(5)] for _ in range(100000)]
 
-print(dp[:, :, :5])
 print(solve(0, 0, 0))

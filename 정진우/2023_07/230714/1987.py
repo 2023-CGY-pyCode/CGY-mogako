@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 R,C = tuple(map(int, input().split()))
 
 board = []

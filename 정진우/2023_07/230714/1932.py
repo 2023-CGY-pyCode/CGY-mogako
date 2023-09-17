@@ -16,7 +16,7 @@ for i in range(1, n):
         else:
             arr[i][j] += max(arr[i-1][j-1], arr[i-1][j])
             
-print(arr)
+# print(arr)
 print(max(arr[n-1]))
         
     

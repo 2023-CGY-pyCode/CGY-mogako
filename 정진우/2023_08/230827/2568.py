@@ -23,7 +23,7 @@ for item in arr:
     
     else: # 마지막에 있는 것보다 작을경우 bisect를 통해서 삽입할 위치를 지정 
         idx = bisect.bisect_left(lis, a) # a를 어디에 삽입하면 좋을까?
-        lis[idx] = a #
+        lis[idx] = a # 삽입연산
         lis_total.append((idx, a)) # 역주적하기 위한 배열 idx와 value pair
         
 max_len = len(lis)-1 # lis의 길이 0을 빼줘야함
@@ -31,17 +31,20 @@ max_len = len(lis)-1 # lis의 길이 0을 빼줘야함
 # debug
 # print(lis)
 # print(lis_total)
+
 results = []
 for item in lis_total[::-1]:
     idx, value = item 
-    if idx == max_len:
+    if idx == max_len: # 수열을 구하는 문제가 아니므로 패스
         max_len-=1
         
     else:
-        results.append(value)
+        results.append(value) # A가 담겨있음 
     
 
-results.sort()
+results.sort() # 오름차순이라는 보장은 없기 때문에 정렬
+
+# ans
 print(len(results))
 for value in results:
     print(value)
